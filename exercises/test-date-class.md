@@ -53,3 +53,25 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 
+1. 
+
+2. We execute the tests with coverage and we got 85% coverage, we can conclude that the tests are working.
+
+3. 
+
+4. We can use pit by copying this in the pom.xml file.
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>LATEST</version>
+    <configuration>
+        <targetClasses>
+            <param>com.your.package.root.want.to.mutate*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.your.package.root*</param>
+        </targetTests>
+    </configuration>
+</plugin>
+
+after that we execute this command line : mvn test-compile org.pitest:pitest-maven:mutationCoverage

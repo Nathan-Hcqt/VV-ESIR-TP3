@@ -40,3 +40,38 @@ Use the following steps to design the test suite:
 Use the project in [tp3-heap](../code/tp3-heap) to complete this exercise.
 
 ## Answer
+
+1. In order to define the test we need to use Input Space Partitioning 
+
+pop and push test :
+if heap empty after pop or push function : heap is empty.
+if heap is not empty after pop or push fucntion : heap have elements.
+
+peek test : 
+check the heap at a given element and return this element. It also check if the function pop return the same element.
+
+count test :
+this count the number of element in th heap and return the number.
+
+the same test can be execute on an empty heap to check if it work.
+
+2. We execute the tests with coverage and we got 87% coverage, we can conclude that the tests are working.
+
+3. 
+
+4. We can use pit by copying this in the pom.xml file.
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>LATEST</version>
+    <configuration>
+        <targetClasses>
+            <param>com.your.package.root.want.to.mutate*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.your.package.root*</param>
+        </targetTests>
+    </configuration>
+</plugin>
+
+after that we execute this command line : mvn test-compile org.pitest:pitest-maven:mutationCoverage

@@ -26,3 +26,34 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 ## Answer
 
+1. In order to define the test we need to use Input Space Partitioning 
+
+Test normal "()", "[]", "{}" --> True 
+
+Test different symbol "(]" or "{)" --> False
+
+Test symbol not closed "(" or "[abcde" --> False
+
+Test symbol not open ")" or "abcde}" --> False  
+
+
+2. We execute the tests with coverage and we got 100% coverage, we can conclude that the tests are working.
+
+3. No need to implement other test because with have 100% test coverage
+
+4. We can use pit by copying this in the pom.xml file.
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>LATEST</version>
+    <configuration>
+        <targetClasses>
+            <param>com.your.package.root.want.to.mutate*</param>
+        </targetClasses>
+        <targetTests>
+            <param>com.your.package.root*</param>
+        </targetTests>
+    </configuration>
+</plugin>
+
+after that we execute this command line : mvn test-compile org.pitest:pitest-maven:mutationCoverage
